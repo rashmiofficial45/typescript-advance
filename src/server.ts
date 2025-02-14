@@ -1,3 +1,5 @@
+import { z } from "zod";
+
 // Define the User interface with name and age properties
 interface User {
   name: string;
@@ -68,3 +70,10 @@ const config: Readonly<Config> = {
   apikey: "some random api key",
   endpoint: "https://somerandomthing.com",
 };
+
+//Type infer (most Imp)
+const schemaManage = z.string();
+type schemaType = z.infer<typeof schemaManage>; // string
+
+// const sdds: schemaType = 12;   // TypeError (it'll start complaining)
+const sk: schemaType = "asdf"; // compiles
