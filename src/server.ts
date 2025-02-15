@@ -92,18 +92,18 @@ function reverse(s: string): string;
 // ❌ Don’t use the return type any for callbacks whose value will be ignored:
 
 /* WRONG */
-function fn(x: () => any) {
+function fn1(x: () => any) {
   x();
 }
 // ✅ Do use the return type void for callbacks whose value will be ignored:
 
 /* OK */
-function fn(x: () => void) {
+function fn2(x: () => void) {
   x();
 }
 // Why: Using void is safer because it prevents you from accidentally using the return value of x in an unchecked way:
 
-function fn(x: () => void) {
+function fn3(x: () => void) {
   var k = x(); // oops! meant to do something else
   k.doSomething(); // error, but would be OK if the return type had been 'any'
 }
