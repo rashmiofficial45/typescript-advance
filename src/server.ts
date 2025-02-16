@@ -103,7 +103,7 @@ function fn2(x: () => void) {
 }
 // Why: Using void is safer because it prevents you from accidentally using the return value of x in an unchecked way:
 
-function fn3(x: () => void) {
+function fn3(x: () => any) {
   var k = x(); // oops! meant to do something else
   k.doSomething(); // error, but would be OK if the return type had been 'any'
 }
