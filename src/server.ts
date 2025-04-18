@@ -107,3 +107,5 @@ function fn3(x: () => any) {
   var k = x(); // oops! meant to do something else
   k.doSomething(); // error, but would be OK if the return type had been 'any'
 }
+
+
